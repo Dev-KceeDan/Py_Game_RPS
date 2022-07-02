@@ -5,6 +5,7 @@ from tokenize import Number
 # import ipdb
 # ipdb.set_trace()
 
+print("Welcome to this CLI Rock-Paper-Scissors Game. Enjoy!!!")
 
 options = ['Rock', 'Paper', 'Scissors']
 
@@ -27,21 +28,25 @@ while NumberOfRounds < 5:
     print(f"Computer's option: {ComputerOption}")
     print(f"{name.title()}'s option: {PlayerOption}")
 
-    NumberOfRounds += 1
-
     if ComputerOption == PlayerOption:
         print("Shoot. Seems it's a tie.")
+        NumberOfRounds += 1
 
     elif (ComputerOption == 'Rock' and PlayerOption == 'Scissors') or (ComputerOption == 'Scissors' and PlayerOption == 'Paper') or (ComputerOption == 'Paper' and PlayerOption == 'Rock'):
         print("Aiit. The Computer wins this round.")
         ComputerScore += 1
+        NumberOfRounds += 1
 
     elif (PlayerOption == 'Rock' and ComputerOption == 'Scissors') or (PlayerOption == 'Scissors' and ComputerOption == 'Paper') or (PlayerOption == 'Paper' and ComputerOption == 'Rock'):
         print(f"Nice. {name.title()} wins this time.")
         PlayerScore += 1
+        NumberOfRounds += 1
 
     else:
-        print("Eish! Seems that doesn't work. /n Make a valid choice.")
+        print("Eish! Seems that doesn't work./nMake a valid choice.")
+        NumberOfRounds += 0
+        ComputerScore += 0
+        PlayerScore += 0
 
     print("-------------------------")
     print("")
@@ -54,6 +59,7 @@ while NumberOfRounds < 5:
     if NumberOfRounds == 5:
         gameOn = False
         break
+
 
 if PlayerScore == ComputerScore:
     print("A tie!!")
